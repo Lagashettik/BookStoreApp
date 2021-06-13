@@ -16,5 +16,5 @@ export const globalStylesheet = StyleSheet.create({
         marginTop: '10%',
         justifyContent: 'center'
     }
-    // #cc3300
+    
 })

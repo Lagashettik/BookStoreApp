@@ -32,39 +32,15 @@ export default class SignIn extends Component {
                 "author": "server"
             })
         };
-        fetch('http://10.0.2.2:8000/users/', requestOptions)
+        fetch('http://10.0.2.2:8000/users/')
             // .then(response => response.json())
             .then(data => console.log("data : ", data))
             .catch(error => console.log(error))
     }
 
-    handleEmail = (email) => {
-        const regex = new RegExp('^[A-Za-z0-9@.]{0,}$')
-        if (!regex.test(email)) {
-            this.setState({
-                email: ''
-            })
-        }
-        else {
-            this.setState({
-                email: email
-            })
-        }
-    }
+    handleEmail = (email) => this.setState({ email: email })
 
-    handlePassword = (password) => {
-        const regex = new RegExp('^[A-Za-z0-9@]{0,}$')
-        if (!regex.test(password)) {
-            this.setState({
-                password: ''
-            })
-        }
-        else {
-            this.setState({
-                password: password
-            })
-        }
-    }
+    handlePassword = (password) => this.setState({ password: password })
 
     handleSignIn = () => {
         console.log('signed in')
@@ -93,13 +69,13 @@ export default class SignIn extends Component {
                     <Button mode='contained' style={signInStyles.signIn_button} onPress={this.fetchDataFromJson} >SignIn</Button>
                     <Text style={{ alignSelf: 'center', marginTop: '10%' }} onPress={() => console.log('Pressed')}>Forgot Password?</Text>
                     <Button icon='facebook' mode='outlined'
-                     style={{ marginTop: '10%' }}
-                     theme={{
-                         colors:{
-                             text:'#4267B2'
-                         }
-                     }}
-                      onPress={() => console.log('facebook')} > Sign in with Facebook</Button>
+                        style={{ marginTop: '10%' }}
+                        theme={{
+                            colors: {
+                                text: '#4267B2'
+                            }
+                        }}
+                        onPress={() => console.log('facebook')} > Sign in with Facebook</Button>
                     <Text style={{ alignSelf: 'center', marginTop: '10%' }}>
                         Don't have an account?
                         <Text style={{ color: globalColorConstant.PARENTCOLOR, fontSize: 17 }} > Create One</Text>

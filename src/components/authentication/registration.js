@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, ScrollView } from 'react-native';
 import { Button, Checkbox, HelperText, TextInput } from 'react-native-paper';
 import { registrationStyleSheet } from '../../styles/authentication/registration.styles';
 import { globalThemeConstant, globalColorConstant } from '../../styles/globalStylesheets/globalStyleDataSheet';
@@ -143,7 +143,8 @@ export default class Registration extends Component {
     }
 
     handlePasswordError = () => {
-
+        if (this.state.confirmPassword.length != 0)
+            this.handleConfirmPasswodError()
         if (this.state.password.length < 8)
             this.setState({
                 showPasswordError: true
@@ -177,14 +178,22 @@ export default class Registration extends Component {
     }
 
     signUp = async () => {
-        if (await !this.checkAllErrors())
+        console.log('signup clicked')
+        if (await !this.checkAllErrors() && this.checkAllInputs()) {
             console.log('logged In')
-        else console.log('not logged in')
+            this.props.navigation.push('dashboard')
+        }
+        else {
+            console.log('not logged in')
+        }
+        console.log('next')
     }
 
     checkAllErrors = () => this.state.showFirstNameError && this.state.showLastNameError
         && this.state.showEmailIdError && this.state.showPasswordError && this.state.showConfirmPasswordError
 
+    checkAllInputs = () => Object.getOwnPropertyNames(this.state).filter(state => typeof (this.state[state]) == typeof (''))
+        .filter(state => this.state[state].length == 0).length == 0
     render() {
         return (
             <View style={registrationStyleSheet.parent_view}>

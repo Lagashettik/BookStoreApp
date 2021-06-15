@@ -1,20 +1,55 @@
 {
-  "users": [
-    {
-      "id": 3,
-      "title": "test server",
-      "author": "server"
-    },
-    {
-      "id": 5,
-      "title": "test server",
-      "author": "server"
-    },
-    {
-      "id": 6,
-      "title": "test server",
-      "author": "server"
+  "users": {
+    "_ybgjsvg0u1": {
+      "firstName": "Abc",
+      "lastName": "Abc",
+      "mobileNumber": "98545",
+      "emailId": "hgfgf@jjhgvhb",
+      "password": "12345678"
     }
-  ],
-  "books": []
+  },
+  "books": {
+    "_wzybue3inj": {
+      "name": "Nora Barrett",
+      "author": "International Bestselling Author",
+      "image_url": "https://d1csarkz8obe9u.cloudfront.net/posterpreviews/action-thriller-book-cover-design-template-3675ae3e3ac7ee095fc793ab61b812cc_screen.jpg?ts=1588152105",
+      "price": "1500"
+    },
+    "_alrkljxytqs": {
+      "name": "made to Impress",
+      "author": "Andrew Cris",
+      "image_url": "https://d1csarkz8obe9u.cloudfront.net/posterpreviews/minimalist-non-fiction-ebook-kindle-cover-design-template-51107efc8d0ae33d3ec041fd7d991a10.jpg?ts=1599554504",
+      "price": "2000"
+    },
+    "_z3hpger56kd": {
+      "name": "The Arrivals",
+      "author": "Lucas Lloyd",
+      "image_url": "https://d1csarkz8obe9u.cloudfront.net/posterpreviews/sci-fi-book-cover-template-a1ec26573b7a71617c38ffc6e356eef9.jpg?ts=1561547637",
+      "price": "2500"
+    },
+    "_48g7ircxruz": {
+      "name": "The Invasion Of The Zombie Aliens",
+      "author": "Jimmie Collins",
+      "image_url": "https://d1csarkz8obe9u.cloudfront.net/posterpreviews/sci-fi-kindle-book-cover-design-template-bd12cf83a9f9d72327e372c5db1d2883.jpg?ts=1561443942",
+      "price": "3600"
+    },
+    "_i61193pddup": {
+      "name": "King Arthur",
+      "author": "Arnold Qurry",
+      "image_url": "https://d1csarkz8obe9u.cloudfront.net/posterpreviews/medieval-fantasy-wattpad-cover-design-template-fb3bc31853ee33845878b1bbd8f5b3b0.jpg?ts=1584437336",
+      "price": "2430"
+    },
+    "_5w0m95m4mxw": {
+      "name": "Title",
+      "author": "Author",
+      "image_url": "https://d1csarkz8obe9u.cloudfront.net/posterpreviews/sci-fi-book-cover-design-template-1228782f5c7a62cc45b1fd882c2b7cbc.jpg?ts=1598008864",
+      "price": "1000"
+    },
+    "_53e12xifqr2": {
+      "name": "Murder in mountain hut",
+      "author": "Jhon Baker",
+      "image_url": "https://d1csarkz8obe9u.cloudfront.net/posterpreviews/murder-mystery-book-cover-design-template-2a1a3ff53d7a9d851046c5e1fdf3943f.jpg?ts=1588152105",
+      "price": ""
+    }
+  }
 }

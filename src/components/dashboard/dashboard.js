@@ -41,12 +41,11 @@ export default class Dashboard extends Component {
                     this.state.searchOn && <Searchbar placeholder='Search'
                         onChangeText={this.handleSearchWord} value={this.state.searchWord}
                         theme={{
-                            colors:{primary:globalColorConstant.PARENTCOLOR}
+                            colors: { primary: globalColorConstant.PARENTCOLOR }
                         }}
                         iconColor={globalColorConstant.PARENTCOLOR}
                     />
                 }
-
                 <DisplayBooks />
             </View>
         )

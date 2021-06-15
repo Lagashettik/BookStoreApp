@@ -3,6 +3,7 @@ import { View, Image } from 'react-native';
 import { signInStyles } from '../../styles/authentication/signIn.styles';
 import { Button, Text, TextInput } from 'react-native-paper'
 import { globalThemeConstant, globalColorConstant } from '../../styles/globalStylesheets/globalStyleDataSheet';
+import UserServices from '../../../services/userServices';
 
 export default class SignIn extends Component {
 
@@ -33,7 +34,7 @@ export default class SignIn extends Component {
             })
         };
         fetch('http://10.0.2.2:8000/users/')
-            // .then(response => response.json())
+            .then(response => response.json())
             .then(data => console.log("data : ", data))
             .catch(error => console.log(error))
     }
@@ -42,8 +43,21 @@ export default class SignIn extends Component {
 
     handlePassword = (password) => this.setState({ password: password })
 
-    handleSignIn = () => {
-        console.log('signed in')
+    handleSignIn = async () => {
+        if (this.state.email.length > 0 && this.state.password.length > 0) {
+            let userData = {
+                emailId: this.state.email,
+                password: this.state.password
+            }
+            await new UserServices().userLogin(userData).then(userid => {
+                this.props.navigation.push('dashboard')
+            })
+                .catch(error => console.log(error))
+            console.log('signed in')
+        }
+        else {
+            console.log('Enter email and password')
+        }
     }
 
     render() {
@@ -66,7 +80,7 @@ export default class SignIn extends Component {
                         mode='outlined' style={signInStyles.text_input}
                         theme={globalThemeConstant.TextInputTheme}
                     />
-                    <Button mode='contained' style={signInStyles.signIn_button} onPress={this.fetchDataFromJson} >SignIn</Button>
+                    <Button mode='contained' style={signInStyles.signIn_button} onPress={this.handleSignIn} >SignIn</Button>
                     <Text style={{ alignSelf: 'center', marginTop: '10%' }} onPress={() => console.log('Pressed')}>Forgot Password?</Text>
                     <Button icon='facebook' mode='outlined'
                         style={{ marginTop: '10%' }}

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text, ScrollView } from 'react-native';
 import { Button, Checkbox, HelperText, TextInput } from 'react-native-paper';
+import UserServices from '../../../services/userServices';
 import { registrationStyleSheet } from '../../styles/authentication/registration.styles';
 import { globalThemeConstant, globalColorConstant } from '../../styles/globalStylesheets/globalStyleDataSheet';
 import { globalStylesheet } from '../../styles/globalStylesheets/globalStyles.styles';
@@ -179,9 +180,19 @@ export default class Registration extends Component {
 
     signUp = async () => {
         console.log('signup clicked')
-        if (await !this.checkAllErrors() && this.checkAllInputs()) {
-            console.log('logged In')
-            this.props.navigation.push('dashboard')
+        if (await !this.checkAllErrors() && await this.checkAllInputs()) {
+            let userData = {
+                firstName: this.state.firstName,
+                lastName: this.state.lastName,
+                mobileNumber: this.state.mobileNumber,
+                emailId: this.state.emailId,
+                password: this.state.password
+            }
+            await new UserServices().userRegistration(userData).then(data => {
+                this.props.navigation.push('dashboard')
+                console.log("data : " + JSON.stringify(data))
+            })
+                .catch(error => console.log("error " + error))
         }
         else {
             console.log('not logged in')
